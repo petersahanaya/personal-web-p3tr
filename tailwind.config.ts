@@ -8,11 +8,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        workSans: ['__Work_Sans_714251', '__Work_Sans_Fallback_714251', 'sans-serif'],
+        bebasNeue: ['__Bebas_Neue_ea6fb5', 'sans-serif'],
+        inter: ['__Inter_60301e', 'sans-serif'],
       },
+    },
+    keyframes: {
+      slider: {
+        from: {
+          transform: 'translateX(0%)',
+        },
+        to: {
+          transform: 'translateX(-100%)',
+        },
+      },
+    },
+    animation: {
+      slider: 'slider 20s infinite linear',
     },
   },
   plugins: [],
