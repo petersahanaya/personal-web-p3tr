@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${WorkSans.className} ${BebasNeue.className}`}>
-        <Cursor />
+        {/* <Cursor /> */}
         {children}
       </body>
     </html>

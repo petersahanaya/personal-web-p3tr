@@ -26,7 +26,7 @@ const PreLoader = () => {
       () => {
         setIndex(index + 1);
       },
-      index == 0 ? 1000 : 100,
+      index == 0 ? 1000 : 130,
     );
   }, [index]);
 
