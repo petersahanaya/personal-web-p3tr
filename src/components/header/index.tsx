@@ -8,11 +8,10 @@ import Link from "next/link";
 import { fadeUp } from "@animation/fade";
 import { useSidebar } from "@hooks/useSidebar";
 
-import { Fragment, useEffect, useLayoutEffect, useRef } from "react";
+import { Fragment, useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { slideDown } from "@/animations/slide";
 
 //bg-stone-500/60 backdrop-blur-md
 
@@ -83,12 +82,7 @@ const Header = () => {
 
   return (
     <>
-      <motion.header
-        variants={slideDown}
-        animate="visible"
-        initial="hidden"
-        className="mx-auto h-[11vh] w-[90%] rounded-xl bg-stone-200/50 px-8 backdrop-blur-sm md:w-[70%]"
-      >
+      <header className="mx-auto h-[11vh] w-[90%] rounded-xl bg-stone-200/50 px-8 backdrop-blur-sm md:w-[70%]">
         <Spacing className="justify-between p-2">
           <Link href="/" className="flex-1 text-6xl text-white">
             P
@@ -117,7 +111,7 @@ const Header = () => {
             ))}
           </Spacing>
         </Spacing>
-      </motion.header>
+      </header>
       <SidebarIcon className="right-[35px] top-[15px] z-50 inline-block scale-90 md:hidden" />
       <SidebarIcon className="hidden scale-0 md:inline-block" ref={buttonRef} />
     </>
