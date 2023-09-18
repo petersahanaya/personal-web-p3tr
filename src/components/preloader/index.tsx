@@ -1,34 +1,34 @@
-'use client'
+"use client";
 
-import Center from '@component/center'
-import { fadeIn } from '@animation/fade'
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { slideUp } from '@/animations/slide'
+import Center from "@component/center";
+import { fadeIn } from "@animation/fade";
+import { slideUp } from "@animation/slide";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const words = [
-  'Hello',
-  'Bonjour',
-  'Ciao',
-  'Olà',
-  'やあ',
-  'Hallå',
-  'Guten tag',
-  'Halo',
-]
+  "Hello",
+  "Bonjour",
+  "Ciao",
+  "Olà",
+  "やあ",
+  "Hallå",
+  "Guten tag",
+  "Halo",
+];
 
 const PreLoader = () => {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (index == words.length - 1) return
+    if (index == words.length - 1) return;
     setTimeout(
       () => {
-        setIndex(index + 1)
+        setIndex(index + 1);
       },
-      index == 0 ? 1000 : 150,
-    )
-  }, [index])
+      index == 0 ? 1000 : 100,
+    );
+  }, [index]);
 
   return (
     <motion.main
@@ -44,7 +44,7 @@ const PreLoader = () => {
         </motion.p>
       </Center>
     </motion.main>
-  )
-}
+  );
+};
 
-export default PreLoader
+export default PreLoader;

@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { ReactChildrenWithClass } from '@type/type'
-import { forwardRef } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { ReactChildrenWithClass } from "@type/type";
+import { forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
 
 const Heading = forwardRef<HTMLHeadingElement | null, ReactChildrenWithClass>(
   function Heading(props, ref) {
@@ -15,8 +15,8 @@ const Heading = forwardRef<HTMLHeadingElement | null, ReactChildrenWithClass>(
       >
         {props.children}
       </h1>
-    )
+    );
   },
-)
+);
 
-export default Heading
+export default Heading;

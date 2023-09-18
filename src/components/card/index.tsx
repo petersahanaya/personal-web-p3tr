@@ -10,6 +10,7 @@ import ShortArrowIcon from "@icon/arrow/shortArrow";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { fadeIn } from "@animation/fade";
+import Link from "next/link";
 
 const Card = (work: Work) => {
   const containerRef = useRef<HTMLElement | null>(null);
@@ -21,9 +22,9 @@ const Card = (work: Work) => {
       variants={fadeIn}
       animate={inView ? "visible" : "hidden"}
       initial="hidden"
-      className="flex w-full items-start justify-around gap-8"
+      className="flex w-full flex-col items-start justify-around gap-8 md:flex-row"
     >
-      <div className="relative h-[400px] w-[50%] overflow-hidden rounded-3xl">
+      <div className="relative h-[200px] w-full overflow-hidden rounded-lg md:h-[400px] md:w-[50%] md:rounded-3xl">
         <Image
           className="object-cover"
           src={work.image}
@@ -37,11 +38,14 @@ const Card = (work: Work) => {
           <Spacing className="">
             <h2 className="text-7xl text-stone-700">{work.title}</h2>
             <Magnetic>
-              <button className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-neutral-700 p-2">
+              <Link
+                href={work.href}
+                className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-neutral-700 p-2"
+              >
                 <Magnetic>
                   <ShortArrowIcon size={30} color="#ffffff" />
                 </Magnetic>
-              </button>
+              </Link>
             </Magnetic>
           </Spacing>
 

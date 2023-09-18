@@ -8,11 +8,15 @@
   }
 }
 
+* {
+  cursor: none;
+}
+
 body {
   background: black;
   overscroll-behavior-y: none;
 }
 
 #noise {
-  background-image: '/public/noise.svg';
+  background-image: "/public/noise.svg";
 }

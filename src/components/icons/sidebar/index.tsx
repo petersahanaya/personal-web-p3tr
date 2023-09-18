@@ -1,19 +1,27 @@
 "use client";
 
-import { useSidebar } from "@hooks/useSidebar";
+import { scaleUpSidebarIcon } from "@/animations/scale";
 import Center from "@component/center";
 import Magnetic from "@component/magnetic";
+
+import { useSidebar } from "@hooks/useSidebar";
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
 
-const SidebarIcon = forwardRef<HTMLDivElement | null, { className?: string }>(
+const SidebarIcon = forwardRef<HTMLDivElement | null, { className?: string, }>(
   function SidebarIcon(props, ref) {
     const state = useSidebar();
 
     return (
-      <div
+      <motion.div
         ref={ref}
-        className={`fixed right-[80px] top-[40px] z-50 h-[60px] w-[60px] ${props.className}`}
+        variants={scaleUpSidebarIcon}
+        animate="visible"
+        initial="hidden"
+        className={twMerge(
+          `fixed right-[10px] top-[10px] z-50 h-[60px] w-[60px] md:right-[80px] md:top-[40px] ${props.className}`,
+        )}
       >
         <Magnetic>
           <motion.button
@@ -51,9 +59,9 @@ const SidebarIcon = forwardRef<HTMLDivElement | null, { className?: string }>(
             </Center>
           </motion.button>
         </Magnetic>
-      </div>
+      </motion.div>
     );
-  }
+  },
 );
 
 export default SidebarIcon;

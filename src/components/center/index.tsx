@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { ReactChildrenWithClass } from '@type/type'
-import { twMerge } from 'tailwind-merge'
+import { ReactChildrenWithClass } from "@type/type";
+import { twMerge } from "tailwind-merge";
 
 const Center = ({ children, className }: ReactChildrenWithClass) => {
   return (
@@ -12,7 +12,7 @@ const Center = ({ children, className }: ReactChildrenWithClass) => {
     >
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default Center
+export default Center;

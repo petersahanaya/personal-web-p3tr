@@ -1,14 +1,10 @@
 "use client";
-import WorkTogetherButton from "@component/button/together";
-import ArrowIcon from "@icon/arrow";
-import Magnetic from "@component/magnetic";
-import Spacing from "@component/spacing";
-import TextField from "@component/textField";
 import Center from "@component/center";
 
-import { fadeIn, fadeUp, fadeUpTitle } from "@animation/fade";
+import { fadeUp, fadeUpTitle } from "@animation/fade";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Form from "@/components/form";
 
 const title = "Let's work together!";
 const description = `feel free if you want to contact me, to discuss further about your project!`;
@@ -21,10 +17,10 @@ const Contact = () => {
     <main
       ref={containerRef}
       id="contact"
-      className="h-screen w-screen  bg-[#141516] px-14 pt-20"
+      className="w-screen bg-[#141516] px-6 pb-12 pt-20 md:px-14"
     >
-      <Center className="flex-col">
-        <section className="flex items-center gap-3 overflow-hidden">
+      <Center className="flex-col justify-start xs:justify-start md:justify-center">
+        <section className="flex flex-wrap items-start gap-3 overflow-hidden xs:justify-start md:flex-nowrap md:items-center">
           {title.split(" ").map((word, idx) => (
             <motion.h2
               variants={fadeUpTitle}
@@ -32,14 +28,14 @@ const Contact = () => {
               initial="hidden"
               custom={idx}
               key={idx}
-              className="text-8xl text-white"
+              className="text-7xl text-white xs:text-[5rem] md:text-8xl"
             >
               {word}
             </motion.h2>
           ))}
         </section>
 
-        <section className="flex items-center gap-2 flex-wrap overflow-hidden">
+        <section className="flex flex-wrap items-center gap-2 overflow-hidden xs:px-5">
           {description.split(" ").map((word, idx) => (
             <motion.p
               key={idx}
@@ -47,35 +43,14 @@ const Contact = () => {
               custom={idx}
               animate={inView ? "visible" : "hidden"}
               initial="hidden"
-              className="max-w-[700px] text-start font-workSans text-md text-stone-300"
+              className="md:text-md max-w-[700px] text-start font-workSans text-sm text-stone-300 xs:text-lg"
             >
               {word}
             </motion.p>
           ))}
         </section>
 
-        <motion.form
-          variants={fadeIn}
-          animate={inView ? "visible" : "hidden"}
-          initial="hidden"
-          className="w-full max-w-[600px] flex flex-col gap-3 pt-3"
-        >
-          <div className="flex gap-3 items-center">
-            <TextField hint="Username" type="text" />
-            <TextField hint="Email" type="email" />
-          </div>
-          <TextField hint="Description" type="text" className="w-full" />
-
-          <WorkTogetherButton className="w-full rounded-md">
-            <Magnetic custom={0.7}>
-              <Spacing className="px-7 justify-start gap-3">
-                <ArrowIcon size={40} />
-
-                <p className="uppercase text-sm">Go with it</p>
-              </Spacing>
-            </Magnetic>
-          </WorkTogetherButton>
-        </motion.form>
+        <Form />
       </Center>
     </main>
   );

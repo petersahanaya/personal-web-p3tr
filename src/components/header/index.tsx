@@ -33,11 +33,11 @@ const sidebarContents = [
 
 const Header = () => {
   const onPressedSetSelected = useSidebar(
-    (state) => state.onPressedSetSelected
+    (state) => state.onPressedSetSelected,
   );
 
   const onPressedToggleSidebar = useSidebar(
-    (state) => state.onPressedToggleSidebar
+    (state) => state.onPressedToggleSidebar,
   );
 
   const buttonRef = useRef(null);
@@ -52,8 +52,6 @@ const Header = () => {
         start: 0,
         end: window.innerHeight,
         onLeave: () => {
-          console.log("JOIN");
-
           gsap.to(buttonRef.current, {
             scale: 1,
             duration: 0.25,
@@ -61,8 +59,6 @@ const Header = () => {
           });
         },
         onEnterBack: () => {
-          console.log("LEAVE");
-
           gsap.to(buttonRef.current, {
             scale: 0,
             duration: 0.25,
@@ -91,16 +87,17 @@ const Header = () => {
         variants={slideDown}
         animate="visible"
         initial="hidden"
-        className="mx-auto h-[11vh] w-[70%] rounded-xl bg-stone-200/50 px-8 backdrop-blur-sm"
+        className="mx-auto h-[11vh] w-[90%] rounded-xl bg-stone-200/50 px-8 backdrop-blur-sm md:w-[70%]"
       >
         <Spacing className="justify-between p-2">
-          <Magnetic>
-            <Link href="/" className="cursor-pointer text-6xl text-white">
-              P
-            </Link>
-          </Magnetic>
+          <Link href="/" className="flex-1 text-6xl text-white">
+            P
+          </Link>
 
-          <Spacing ref={actionRef} className="h-full w-[40%] justify-between ">
+          <Spacing
+            ref={actionRef}
+            className="hidden h-full w-[80%] justify-between gap-3 md:flex md:w-max"
+          >
             {sidebarContents.map(({ title, href }, idx) => (
               <Fragment key={idx}>
                 <Magnetic>
@@ -110,7 +107,7 @@ const Header = () => {
                     animate={"visible"}
                     initial="hidden"
                     custom={idx}
-                    className="group relative cursor-pointer font-workSans text-[1rem] font-[400] text-white"
+                    className="group relative  font-workSans text-sm font-[400]  text-white md:text-[1rem]"
                   >
                     {title}
                     <div className="absolute bottom-[-10px] left-[50%] h-[5px] w-[5px] translate-x-[-50%] scale-0 rounded-full bg-white transition-all group-hover:scale-100"></div>
@@ -121,7 +118,8 @@ const Header = () => {
           </Spacing>
         </Spacing>
       </motion.header>
-          <SidebarIcon className="scale-0" ref={buttonRef} />
+      <SidebarIcon className="right-[35px] top-[15px] z-50 inline-block scale-90 md:hidden" />
+      <SidebarIcon className="hidden scale-0 md:inline-block" ref={buttonRef} />
     </>
   );
 };

@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { ReactChildrenWithClass } from '@/types/type'
+import { ReactChildrenWithClass } from "@/types/type";
 
 const Noise = ({ children, className }: ReactChildrenWithClass) => {
   return (
@@ -16,7 +16,7 @@ const Noise = ({ children, className }: ReactChildrenWithClass) => {
 
       <rect width="100%" height="100%" filter="url(#noiseFilter)" />
     </svg>
-  )
-}
+  );
+};
 
-export default Noise
+export default Noise;

@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { fadeIn } from '@animation/fade'
-import { motion } from 'framer-motion'
+import { fadeIn } from "@animation/fade";
+import { motion } from "framer-motion";
 
 const Blur = () => {
   return (
@@ -12,7 +12,7 @@ const Blur = () => {
       exit="hidden"
       className="fixed left-0 top-0 z-10 h-screen w-screen backdrop-blur-md"
     ></motion.main>
-  )
-}
+  );
+};
 
-export default Blur
+export default Blur;

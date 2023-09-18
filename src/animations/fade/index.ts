@@ -1,7 +1,7 @@
 export const easeOutQuart = [0.25, 1, 0.5, 1];
 
 export const fadeInLeft = {
-  visible: {
+  visible: (idx: number) => ({
     x: 0,
     opacity: 1,
     transition: {
@@ -9,7 +9,7 @@ export const fadeInLeft = {
       staggerChildren: 0.05,
       ease: easeOutQuart,
     },
-  },
+  }),
   hidden: {
     x: 80,
     opacity: 0,
@@ -21,8 +21,9 @@ export const fadeIn = {
     opacity: 1,
     transition: {
       type: "tween",
-      delay: 0.3,
+      // delay: 0.3,
       ease: easeOutQuart,
+      staggerChildren: 0.2,
       when: "beforeChildren",
     },
   },
@@ -55,7 +56,7 @@ export const fadeUpTitle = {
     },
   }),
   hidden: {
-    y: 300,
+    y: 400,
   },
 };
 

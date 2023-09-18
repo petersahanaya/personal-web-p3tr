@@ -1,35 +1,35 @@
-'use client'
+"use client";
 
-import { ReactChildren } from '@type/type'
-import PreLoader from '@component/preloader'
-import { AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { ReactChildren } from "@type/type";
+import PreLoader from "@component/preloader";
+import { AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const LocomotiveProvider = ({ children }: ReactChildren) => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let scroll: LocomotiveScroll | null = null
-    ;(async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default
+    let scroll: LocomotiveScroll | null = null;
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
       scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]') as HTMLElement,
+        el: document.querySelector("[data-scroll-container]") as HTMLElement,
         smooth: true,
         resetNativeScroll: true,
-      })
-    })()
+      });
+    })();
 
     setTimeout(() => {
-      setLoading(false)
+      setLoading(false);
 
-      document.body.style.cursor = 'default'
-      window.scrollTo(0, 0)
-    }, 2000)
+      document.body.style.cursor = "default";
+      window.scrollTo(0, 0);
+    }, 2000);
 
     return () => {
-      scroll && scroll.destroy()
-    }
-  }, [])
+      scroll && scroll.destroy();
+    };
+  }, []);
 
   return (
     <>
@@ -37,7 +37,7 @@ const LocomotiveProvider = ({ children }: ReactChildren) => {
 
       {children}
     </>
-  )
-}
+  );
+};
 
-export default LocomotiveProvider
+export default LocomotiveProvider;

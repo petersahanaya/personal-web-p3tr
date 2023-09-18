@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { ReactChildrenWithClass } from '@type/type'
-import { forwardRef } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { ReactChildrenWithClass } from "@type/type";
+import { forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
 
 const Spacing = forwardRef<HTMLDivElement | null, ReactChildrenWithClass>(
   function Spacing(props, ref) {
@@ -15,8 +15,8 @@ const Spacing = forwardRef<HTMLDivElement | null, ReactChildrenWithClass>(
       >
         {props.children}
       </section>
-    )
+    );
   },
-)
+);
 
-export default Spacing
+export default Spacing;
